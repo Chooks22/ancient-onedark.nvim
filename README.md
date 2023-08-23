@@ -1,6 +1,6 @@
 <h1 align="left">
 <span> &nbsp;&nbsp;&nbsp; </span>
-<img height="100" src="https://user-images.githubusercontent.com/20145075/127218526-44b107db-92b9-4a47-86a3-132b4c1e45d1.png" alt="OneDark.nvim">
+<img height="100" src="https://user-images.githubusercontent.com/20145075/127218526-44b107db-92b9-4a47-86a3-132b4c1e45d1.png" alt="ancient_onedark.nvim">
 </h1>
 
 <h4><div align="right">
@@ -26,28 +26,28 @@
 
 ## Themes
 <p float="left">
-<img width="412" alt="Onedark - dark" src="https://user-images.githubusercontent.com/20145075/144289835-cbbbcb22-4eae-41f1-a5a3-e1800a37ae41.png">
-<img width="412" alt="Onedark - darker" src="https://user-images.githubusercontent.com/20145075/144293945-ee3b7dca-b119-4709-96d3-50391c7b8aba.png">
+<img width="412" alt="ancient_onedark - dark" src="https://user-images.githubusercontent.com/20145075/144289835-cbbbcb22-4eae-41f1-a5a3-e1800a37ae41.png">
+<img width="412" alt="ancient_onedark - darker" src="https://user-images.githubusercontent.com/20145075/144293945-ee3b7dca-b119-4709-96d3-50391c7b8aba.png">
 </div></p>
 <p float="left">
-<img width="412" alt="Onedark - cool" src="https://user-images.githubusercontent.com/20145075/144298826-5c51eb3a-5529-4fe7-bce2-56508eda93d7.png">
-<img width="412" alt="Onedark - deep" src="https://user-images.githubusercontent.com/20145075/144299487-a7e886c7-2cc9-4d85-9aac-8517170432fc.png">
+<img width="412" alt="ancient_onedark - cool" src="https://user-images.githubusercontent.com/20145075/144298826-5c51eb3a-5529-4fe7-bce2-56508eda93d7.png">
+<img width="412" alt="ancient_onedark - deep" src="https://user-images.githubusercontent.com/20145075/144299487-a7e886c7-2cc9-4d85-9aac-8517170432fc.png">
 </div></p>
 <p float="left">
-<img width="412" alt="Onedark - warm" src="https://user-images.githubusercontent.com/20145075/144304677-abbf6cc1-4adc-48b4-b675-6f6a5a98b426.png">
-<img width="412" alt="Onedark - warmer" src="https://user-images.githubusercontent.com/20145075/144304700-1e333a12-6994-4fb2-9053-1e7f294d41a6.png">
+<img width="412" alt="ancient_onedark - warm" src="https://user-images.githubusercontent.com/20145075/144304677-abbf6cc1-4adc-48b4-b675-6f6a5a98b426.png">
+<img width="412" alt="ancient_onedark - warmer" src="https://user-images.githubusercontent.com/20145075/144304700-1e333a12-6994-4fb2-9053-1e7f294d41a6.png">
 </div></p>
 
 ## Installation
 Install via your favourite package manager
 ```vim
 " Using Vim-Plug
-Plug 'navarasu/onedark.nvim'
+Plug 'Chooks22/ancient_onedark.nvim'
 ```
 
 ```lua
 -- Using Packer
-use 'navarasu/onedark.nvim'
+use 'Chooks22/ancient_onedark.nvim'
 ```
 
 ## Configuration
@@ -56,41 +56,41 @@ use 'navarasu/onedark.nvim'
 
 ```lua
 -- Lua
-require('onedark').load()
+require('ancient-onedark').load()
 ```
 
 ```vim
 " Vim
-colorscheme onedark
+colorscheme ancient_onedark
 ```
 
 ### Change default style
 
 ```lua
 -- Lua
-require('onedark').setup {
+require('ancient-onedark').setup {
     style = 'darker'
 }
-require('onedark').load()
+require('ancient-onedark').load()
 ```
 
 ```vim
 " Vim
-let g:onedark_config = {
-    \ 'style': 'darker',
+let g:ancient_onedark_config = {
+    \ 'style': 'violet',
 \}
-colorscheme onedark
+colorscheme ancient_onedark
 ```
 
-> **Options:**  dark, darker, cool, deep, warm, warmer, light
+> **Options:**  dark, slate, violet
 
 ## Default Configuration
 
 ```lua
 -- Lua
-require('onedark').setup  {
+require('ancient-onedark').setup  {
     -- Main options --
-    style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'dark', -- Default theme style. Choose between 'dark', 'slate' and 'violet'
     transparent = false,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -98,7 +98,7 @@ require('onedark').setup  {
 
     -- toggle theme style ---
     toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+    toggle_style_list = {'dark', 'slate', 'violet'}, -- List of styles to toggle between
 
     -- Change code style ---
     -- Options are italic, bold, underline, none
@@ -131,12 +131,12 @@ require('onedark').setup  {
 
 ### Vimscript configuration
 
-Onedark can be configured also with Vimscript, using the global dictionary `g:onedark_config`.
+ancient_onedark can be configured also with Vimscript, using the global dictionary `g:onedark_config`.
 **NOTE**: when setting boolean values use `v:true` and `v:false` instead of 0 and 1
 
 Example:
 ``` vim
-let g:onedark_config = {
+let g:ancient_onedark_config = {
   \ 'style': 'deep',
   \ 'toggle_style_key': '<leader>ts',
   \ 'ending_tildes': v:true,
@@ -145,7 +145,7 @@ let g:onedark_config = {
     \ 'background': v:false,
   \ },
 \ }
-colorscheme onedark
+colorscheme ancient_onedark
 ```
 
 ## Customization
@@ -153,7 +153,7 @@ colorscheme onedark
 Example custom colors and Highlights config
 
 ```lua
-require('onedark').setup {
+require('ancient-onedark').setup {
   colors = {
     bright_orange = "#ff8800",    -- define a new color
     green = '#00ffaa',            -- redefine an existing color
@@ -170,10 +170,10 @@ Note that TreeSitter keywords have been changed after neovim version 0.8 and onw
 TS prefix is trimmed and lowercase words should be used separated with '.'
 
 The old way before neovim 0.8 looks like this.
-For all keywords see [this](https://github.com/navarasu/onedark.nvim/blob/master/lua/onedark/highlights.lua#L133-L257) file from line 133 to 257
+For all keywords see [this](https://github.com/Chooks22/ancient_onedark.nvim/blob/master/lua/ancient_onedark/highlights.lua#L133-L257) file from line 133 to 257
 
 ```lua
-require('onedark').setup {
+require('ancient-onedark').setup {
   colors = {
     bright_orange = "#ff8800",    -- define a new color
     green = '#00ffaa',            -- redefine an existing color
@@ -190,12 +190,12 @@ require('onedark').setup {
 ## Plugins Configuration
 
 ### Enable lualine
-To Enable the `onedark` theme for `Lualine`, specify theme as `onedark`:
+To Enable the `ancient_onedark` theme for `Lualine`, specify theme as `ancient_onedark`:
 
 ```lua
 require('lualine').setup {
   options = {
-    theme = 'onedark'
+    theme = 'ancient_onedark'
     -- ... your lualine config
   }
 }

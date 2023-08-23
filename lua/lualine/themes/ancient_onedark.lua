@@ -1,5 +1,5 @@
-local c = require('onedark.colors')
-local cfg = vim.g.onedark_config
+local c = require('ancient-onedark.colors')
+local cfg = vim.g.ancient_onedark_config
 local colors = {
     bg = c.bg0,
     fg = c.fg,

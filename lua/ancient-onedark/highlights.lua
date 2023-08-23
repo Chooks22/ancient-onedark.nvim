@@ -1,6 +1,6 @@
-local c = require('onedark.colors')
-local cfg = vim.g.onedark_config
-local util = require("onedark.util")
+local c = require('ancient-onedark.colors')
+local cfg = vim.g.ancient_onedark_config
+local util = require("ancient-onedark.util")
 
 local M = {}
 local hl = {langs = {}, plugins = {}}
@@ -96,7 +96,7 @@ hl.common = {
 }
 
 hl.syntax = {
-    String = {fg = c.green, fmt = cfg.code_style.strings},
+    String = {fg = c.yellow, fmt = cfg.code_style.strings}, --
     Character = colors.Orange,
     Number = colors.Orange,
     Float = colors.Orange,
@@ -121,7 +121,7 @@ hl.syntax = {
     Label = colors.Purple,
     Special = colors.Red,
     SpecialChar = colors.Red,
-    Function = {fg = c.blue, fmt = cfg.code_style.functions},
+    Function = {fg = c.red, fmt = cfg.code_style.functions}, --
     Operator = colors.Purple,
     Title = colors.Cyan,
     Tag = colors.Green,
@@ -139,7 +139,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@boolean"] = colors.Orange,
         ["@character"] = colors.Orange,
         ["@comment"] = {fg = c.grey, fmt = cfg.code_style.comments},
-        ["@conditional"] = {fg = c.purple, fmt = cfg.code_style.keywords},
+        ["@conditional"] = {fg = c.blue, fmt = cfg.code_style.keywords}, --
         ["@constant"] = colors.Orange,
         ["@constant.builtin"] = colors.Orange,
         ["@constant.macro"] = colors.Orange,
@@ -148,28 +148,28 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@exception"] = colors.Purple,
         ["@field"] = colors.Cyan,
         ["@float"] = colors.Orange,
-        ["@function"] = {fg = c.blue, fmt = cfg.code_style.functions},
+        ["@function"] = {fg = c.red, fmt = cfg.code_style.functions}, --
         ["@function.builtin"] = {fg = c.cyan, fmt = cfg.code_style.functions},
         ["@function.macro"] = {fg = c.cyan, fmt = cfg.code_style.functions},
-        ["@include"] = colors.Purple,
-        ["@keyword"] = {fg = c.purple, fmt = cfg.code_style.keywords},
-        ["@keyword.function"] = {fg = c.purple, fmt = cfg.code_style.functions},
-        ["@keyword.operator"] =  {fg = c.purple, fmt = cfg.code_style.keywords},
+        ["@include"] = colors.Blue, --
+        ["@keyword"] = {fg = c.blue, fmt = cfg.code_style.keywords}, --
+        ["@keyword.function"] = {fg = c.blue, fmt = cfg.code_style.functions}, --
+        ["@keyword.operator"] =  {fg = c.blue, fmt = cfg.code_style.keywords}, --
         ["@label"] = colors.Red,
-        ["@method"] = colors.Blue,
+        ["@method"] = colors.Red,
         ["@namespace"] = colors.Yellow,
         ["@none"] = colors.Fg,
         ["@number"] = colors.Orange,
-        ["@operator"] = colors.Fg,
-        ["@parameter"] = colors.Red,
+        ["@operator"] = colors.Blue, --
+        ["@parameter"] = colors.Purple, --
         ["@parameter.reference"] = colors.Fg,
         ["@preproc"] = colors.Purple,
         ["@property"] = colors.Cyan,
         ["@punctuation.delimiter"] = colors.LightGrey,
         ["@punctuation.bracket"] = colors.LightGrey,
         ["@punctuation.special"] = colors.Red,
-        ["@repeat"] = {fg = c.purple, fmt = cfg.code_style.keywords},
-        ["@string"] = {fg = c.green, fmt = cfg.code_style.strings},
+        ["@repeat"] = {fg = c.blue, fmt = cfg.code_style.keywords},
+        ["@string"] = {fg = c.yellow, fmt = cfg.code_style.strings}, --
         ["@string.regex"] = {fg = c.orange, fmt = cfg.code_style.strings},
         ["@string.escape"] = {fg = c.red, fmt = cfg.code_style.strings},
         ["@symbol"] = colors.Cyan,
@@ -254,7 +254,7 @@ else
         TSNone = colors.Fg,
         TSNumber = colors.Orange,
         TSOperator = colors.Fg,
-        TSParameter = colors.Red,
+        TSParameter = colors.Purple,
         TSParameterReference = colors.Fg,
         TSProperty = colors.Cyan,
         TSPunctDelimiter = colors.LightGrey,
@@ -777,7 +777,7 @@ function M.setup()
             color_name = c[name]
             if not color_name then
                 vim.schedule(function()
-                    vim.notify('onedark.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "onedark.nvim" })
+                    vim.notify('ancient-onedark.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "ancient-onedark.nvim" })
                 end)
                 return ""
             end
@@ -785,7 +785,7 @@ function M.setup()
         return prefix .. "=" .. color_name
     end
 
-    for group_name, group_settings in pairs(vim.g.onedark_config.highlights) do
+    for group_name, group_settings in pairs(vim.g.ancient_onedark_config.highlights) do
         vim.api.nvim_command(string.format("highlight %s %s %s %s %s", group_name,
             replace_color("guifg", group_settings.fg),
             replace_color("guibg", group_settings.bg),
