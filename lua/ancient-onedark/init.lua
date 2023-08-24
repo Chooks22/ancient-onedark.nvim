@@ -55,7 +55,7 @@ local default_config = {
     code_style = {
         comments = 'italic',
         keywords = 'none',
-        functions = 'none',
+        functions = 'italic',
         strings = 'none',
         variables = 'none'
     },

@@ -40,8 +40,8 @@ hl.common = {
     iCursor = {fmt = "reverse"},
     lCursor = {fmt = "reverse"},
     CursorIM = {fmt = "reverse"},
-    CursorColumn = {bg = c.bg1},
-    CursorLine = {bg = c.bg1},
+    CursorColumn = {bg = c.bg2}, --
+    CursorLine = {bg = c.bg2}, --
     ColorColumn = {bg = c.bg1},
     CursorLineNr = {fg = c.fg},
     LineNr = {fg = c.grey},
@@ -102,7 +102,7 @@ hl.syntax = {
     Float = colors.Orange,
     Boolean = colors.Orange,
     Type = colors.Yellow,
-    Structure = colors.Yellow,
+    Structure = colors.Red,
     StorageClass = colors.Yellow,
     Identifier = {fg = c.red, fmt = cfg.code_style.variables},
     Constant = colors.Cyan,
@@ -121,7 +121,7 @@ hl.syntax = {
     Label = colors.Purple,
     Special = colors.Red,
     SpecialChar = colors.Red,
-    Function = {fg = c.red, fmt = cfg.code_style.functions}, --
+    Function = {fg = c.red, fmt = cfg.code_style.variables}, --
     Operator = colors.Purple,
     Title = colors.Cyan,
     Tag = colors.Green,
@@ -143,16 +143,18 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@constant"] = colors.Orange,
         ["@constant.builtin"] = colors.Orange,
         ["@constant.macro"] = colors.Orange,
-        ["@constructor"] = {fg = c.yellow, fmt = "bold"},
+        ["@constructor"] = {fg = c.yellow}, --
         ["@error"] = colors.Fg,
         ["@exception"] = colors.Purple,
         ["@field"] = colors.Cyan,
         ["@float"] = colors.Orange,
-        ["@function"] = {fg = c.red, fmt = cfg.code_style.functions}, --
+        ["@function"] = {fg = c.red, fmt = cfg.code_style.variables}, --
         ["@function.builtin"] = {fg = c.cyan, fmt = cfg.code_style.functions},
         ["@function.macro"] = {fg = c.cyan, fmt = cfg.code_style.functions},
         ["@include"] = colors.Blue, --
-        ["@keyword"] = {fg = c.blue, fmt = cfg.code_style.keywords}, --
+        ["@keyword"] = {fg = c.blue, fmt = 'italic'}, --
+        ["@keyword.declaration"] = {fg = c.blue}, --
+        ["@keyword.return"] = {fg = c.blue}, --
         ["@keyword.function"] = {fg = c.blue, fmt = cfg.code_style.functions}, --
         ["@keyword.operator"] =  {fg = c.blue, fmt = cfg.code_style.keywords}, --
         ["@label"] = colors.Red,
@@ -164,7 +166,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@parameter"] = colors.Purple, --
         ["@parameter.reference"] = colors.Fg,
         ["@preproc"] = colors.Purple,
-        ["@property"] = colors.Cyan,
+        ["@property"] = colors.Fg,
         ["@punctuation.delimiter"] = colors.LightGrey,
         ["@punctuation.bracket"] = colors.LightGrey,
         ["@punctuation.special"] = colors.Red,
@@ -197,7 +199,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@type"] = colors.Yellow,
         ["@type.builtin"] = colors.Orange,
         ["@variable"] = {fg = c.fg, fmt = cfg.code_style.variables},
-        ["@variable.builtin"] = {fg = c.red, fmt = cfg.code_style.variables},
+        ["@variable.builtin"] = {fg = c.fg, fmt = cfg.code_style.variables}, --
     }
     if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
         hl.lsp = {
@@ -241,7 +243,7 @@ else
         TSException = colors.Purple,
         TSField = colors.Cyan,
         TSFloat = colors.Orange,
-        TSFunction = {fg = c.blue, fmt = cfg.code_style.functions},
+        TSFunction = {fg = c.red, fmt = cfg.code_style.variables},
         TSFuncBuiltin = {fg = c.cyan, fmt = cfg.code_style.functions},
         TSFuncMacro = {fg = c.cyan, fmt = cfg.code_style.functions},
         TSInclude = colors.Purple,
